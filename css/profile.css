@@ -1,0 +1,163 @@
+@import url('global.css');
+
+.profile-wrapper {
+    width: 100%;
+}
+
+.profile-container {
+    display: flex;
+    gap: var(--spacing-2xl);
+    flex-wrap: wrap;
+    width: stretch;
+}
+
+/* Левая колонка - информация */
+.profile-info {
+    flex: 1;
+    min-width: 280px;
+    background-color: var(--color-beige);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+}
+
+.avatar-placeholder {
+    width: 120px;
+    height: 120px;
+    background-color: var(--color-dark-green);
+    color: var(--color-beige);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-family: var(--font-h1);
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid var(--color-light-beige);
+    padding-bottom: 12px;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.info-label {
+    font-family: var(--font-h1);
+    font-size: 18px;
+    color: var(--color-dark-green);
+    opacity: 0.7;
+}
+
+.info-value {
+    font-family: var(--font-h2);
+    font-size: 18px;
+    color: var(--color-dark-green);
+    font-weight: bold;
+}
+
+/* Кнопка выхода */
+.logout-wrapper {
+    width: 100%;
+}
+
+.btn-logout {
+    display: block;
+    text-align: center;
+    background-color: #ab9393;
+    color: var(--color-beige);
+    padding: 12px var(--spacing-lg);
+    border-radius: var(--radius-xl);
+    font-family: var(--font-h1);
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-logout:hover {
+    background-color: #bd5a5a;
+    transform: scale(1.02);
+}
+
+/* Правая колонка - формы */
+.profile-forms {
+    flex: 2;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.form-card {
+    background-color: var(--color-beige);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+}
+
+.form-card h2 {
+    font-family: var(--font-h1);
+    font-size: 24px;
+    color: var(--color-dark-green);
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-group small {
+    font-family: var(--font-h2);
+    font-size: 12px;
+    color: var(--color-dark-green);
+    opacity: 0.7;
+    padding-top: 5px;
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+    
+    .profile-info {
+        min-width: auto;
+    }
+    
+    .profile-forms {
+        min-width: auto;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}

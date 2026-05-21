@@ -1,0 +1,151 @@
+@import url('global.css');
+
+body {
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+
+.auth-container {
+    background-color: var(--bg-header-footer);
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    text-align: center;
+    color: var(--text-on-dark);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-3xl) 100px;
+    align-items: center;
+    box-shadow: var(--shadow-md);
+}
+
+.auth-container h1 {
+    font-size: 48px;
+    font-family: var(--font-h1);
+    color: var(--text-on-dark);
+}
+
+.welcome_icon {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.welcome_icon svg {
+    fill: var(--text-on-dark);
+    width: 70px;
+    height: 70px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    align-items: center;
+    width: 100%;
+}
+
+.input_field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    align-items: center;
+    width: 100%;
+}
+
+.input_field input {
+    width: 100%;
+    min-width: 300px;
+    padding: 15px 0;
+    border-bottom: 2px solid var(--text-on-dark);
+    background: transparent;
+    font-family: var(--font-h2);
+    font-size: 24px;
+    color: var(--text-on-dark);
+    outline: none;
+}
+
+.input_field input::placeholder {
+    font-family: var(--font-h2);
+    font-size: 24px;
+    color: var(--text-on-dark);
+    opacity: 0.8;
+}
+
+.button_auth {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    align-items: center;
+    width: 100%;
+}
+
+.button_auth button {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    padding: 12px 50px;
+    border-radius: var(--radius-xl);
+    font-family: var(--font-h1);
+    font-size: 24px;
+    width: fit-content;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.button_auth button:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+.button_auth a {
+    font-family: var(--font-h2);
+    font-size: 18px;
+    color: var(--text-on-dark);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.button_auth a:hover {
+    opacity: 0.8;
+}
+
+.error {
+    background-color: rgba(220, 38, 38, 0.2);
+    color: #ffcccc;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-xl);
+    font-family: var(--font-h2);
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+    .auth-container {
+        padding: var(--spacing-xl) var(--spacing-xl);
+        width: 90%;
+    }
+    
+    .auth-container h1 {
+        font-size: 32px;
+    }
+    
+    .input_field input {
+        min-width: 250px;
+        font-size: 18px;
+    }
+    
+    .input_field input::placeholder {
+        font-size: 18px;
+    }
+    
+    .button_auth button {
+        font-size: 20px;
+        padding: 10px 40px;
+    }
+}

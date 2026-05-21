@@ -1,0 +1,162 @@
+@import url('global.css');
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xl);
+    width: 100%;
+}
+
+.form-row-group {
+    display: flex;
+    gap: var(--spacing-xl);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-left {
+    flex-shrink: 0;
+}
+
+.form-right {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.form-row {
+    display: flex;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+/* Загрузка фото */
+.photo-upload {
+    width: 280px;
+    height: 350px;
+    border: 2px dashed var(--color-dark-green);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-dark-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.photo-upload input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.photo-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.photo-preview svg {
+    stroke: var(--color-beige);
+    width: 48px;
+    height: 48px;
+}
+
+.photo-preview p {
+    color: var(--color-beige);
+    font-family: var(--font-h2);
+    font-size: 18px;
+}
+
+.preview-hint {
+    color: var(--color-beige);
+    font-family: var(--font-h2);
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: calc(var(--radius-lg) - 2px);
+}
+
+/* Кнопка отправки */
+.btn-submit {
+    background-color: var(--color-dark-green);
+    color: var(--color-beige);
+    border: none;
+    padding: 12px 50px;
+    border-radius: var(--radius-xl);
+    font-family: var(--font-h1);
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--color-green-gray);
+    transform: scale(1.02);
+}
+
+.form-buttons {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+}
+
+.btn-delete {
+    background-color: #dc2626;
+}
+
+.btn-delete:hover {
+    background-color: #b91c1c;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .form-row-group {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-xl);
+    }
+    
+    .form-right {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+    
+    .photo-upload {
+        width: 250px;
+        height: 300px;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-submit {
+        width: 100%;
+    }
+}

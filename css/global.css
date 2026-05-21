@@ -1,0 +1,729 @@
+/* global.css - глобальные стили для всего сайта */
+@import url('https://fonts.googleapis.com/css2?family=Days+One&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
+
+/* Светлая тема (по умолчанию) */
+:root {
+    --color-dark-green: #405A5C;
+    --color-light-beige: #C3C1AF;
+    --color-green-gray: #5F7E7B;
+    --color-beige: #F0EFE6;
+    
+    --font-h1: "Days One", sans-serif;
+    --font-h2: "Sofia Sans", sans-serif;
+    
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --spacing-2xl: 40px;
+    --spacing-3xl: 50px;
+    
+    --radius-sm: 15px;
+    --radius-md: 20px;
+    --radius-lg: 30px;
+    --radius-xl: 50px;
+    
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Тёмная тема */
+body.dark-theme {
+    --color-dark-green: #C3C1AF;
+    --color-light-beige: #5F7E7B;
+    --color-green-gray: #2c4a4c;
+    --color-beige: #405A5C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-light-beige);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: var(--font-h2);
+    color: var(--color-dark-green);
+    gap: var(--spacing-xl);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== ШАПКА (HEADER) ===== */
+header {
+    width: 100%;
+    display: flex;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    justify-content: space-between;
+    align-items: center;
+    background-color: #405A5C;
+    color: #F0EFE6;
+    font-family: var(--font-h1);
+    font-size: 20px;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    position: relative;
+}
+
+body.dark-theme header {
+    color: #C3C1AF;
+}
+
+header svg {
+    fill: #F0EFE6;
+    width: 50px;
+    height: 50px;
+}
+
+body.dark-theme header svg {
+    fill: #C3C1AF;
+}
+
+.logo {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    text-decoration: none;
+    z-index: 101;
+}
+
+.logo h1 {
+    font-size: 20px;
+    color: #F0EFE6;
+    font-family: var(--font-h1);
+}
+
+body.dark-theme .logo h1 {
+    color: #C3C1AF;
+}
+
+/* ===== БУРГЕР-МЕНЮ ===== */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.burger-line {
+    width: 100%;
+    height: 3px;
+    background-color: #F0EFE6;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .burger-line {
+    background-color: #C3C1AF;
+}
+
+.burger-menu.active .burger-line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.burger-menu.active .burger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active .burger-line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+nav {
+    display: flex;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: var(--font-h1);
+    color: #F0EFE6;
+    transition: opacity 0.3s ease;
+}
+
+body.dark-theme nav a {
+    color: #C3C1AF;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+/* Кнопка переключения темы */
+.theme-toggle {
+    background: transparent;
+    border: 2px solid #F0EFE6;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s;
+    color: #F0EFE6;
+}
+
+body.dark-theme .theme-toggle {
+    border-color: #C3C1AF;
+    color: #C3C1AF;
+}
+
+.theme-toggle:hover {
+    background-color: #F0EFE6;
+    color: #405A5C;
+    transform: scale(1.05);
+}
+
+body.dark-theme .theme-toggle:hover {
+    background-color: #C3C1AF;
+    color: #405A5C;
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xl);
+}
+
+main h1 {
+    font-size: clamp(28px, 5vw, 50px);
+    font-family: var(--font-h1);
+    color: var(--color-dark-green);
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+/* ===== ВСЕ СВЕТЛЫЕ БЛОКИ ===== */
+.pet-card,
+.admin-card,
+.user-card,
+.form-card,
+.filter-block,
+.chat-sidebar,
+.chat-main,
+.stat-card,
+.profile-info,
+.auth-container,
+.conversation-item,
+.message-in,
+.photo-upload {
+    background-color: var(--color-beige);
+    transition: background-color 0.3s ease;
+}
+
+/* Дополнительные стили для блоков */
+.pet-card,
+.admin-card,
+.user-card,
+.chat-sidebar,
+.chat-main,
+.stat-card {
+    box-shadow: var(--shadow-sm);
+}
+
+.pet-card,
+.admin-card,
+.user-card {
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+}
+
+.form-card,
+.profile-info {
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-block {
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    width: 100%;
+}
+
+.chat-sidebar,
+.chat-main {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.stat-card {
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    text-align: center;
+}
+
+.auth-container {
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-3xl) 100px;
+    box-shadow: var(--shadow-md);
+    background-color: var(--color-beige);
+}
+
+.photo-upload {
+    border: 2px dashed var(--color-dark-green);
+    border-radius: var(--radius-lg);
+}
+
+/* Стили для диалогов в чате */
+.conversation-item {
+    border-bottom: 1px solid var(--color-light-beige);
+    transition: background-color 0.3s ease;
+}
+
+.conversation-item:hover {
+    background-color: var(--color-light-beige);
+}
+
+.conversation-item.active {
+    background-color: var(--color-dark-green);
+}
+
+.conversation-item.active .conv-name,
+.conversation-item.active .conv-last-message {
+    color: var(--color-beige);
+}
+
+/* Сообщения в чате */
+.message-in {
+    background-color: var(--color-light-beige);
+    color: var(--color-dark-green);
+}
+
+.message-out {
+    background-color: var(--color-dark-green);
+    color: var(--color-beige);
+}
+
+/* ===== ОБЩИЕ СТИЛИ ДЛЯ КНОПОК ===== */
+.btn-primary,
+.btn-submit,
+.filter-form button,
+.reset-btn,
+.pet-message-btn,
+.pet-edit-link,
+.chat-input-area button,
+.admin-actions button,
+.make-admin-btn,
+.unblock-user-btn,
+.approve-btn {
+    background-color: #405A5C;
+    color: #F0EFE6;
+    border: none;
+    padding: 12px var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    font-family: var(--font-h1);
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+body.dark-theme .btn-primary,
+body.dark-theme .btn-submit,
+body.dark-theme .filter-form button,
+body.dark-theme .reset-btn,
+body.dark-theme .pet-message-btn,
+body.dark-theme .pet-edit-link,
+body.dark-theme .chat-input-area button,
+body.dark-theme .admin-actions button,
+body.dark-theme .make-admin-btn,
+body.dark-theme .unblock-user-btn,
+body.dark-theme .approve-btn {
+    color: var(--color-beige);
+    background-color: var(--color-dark-green);
+}
+
+.btn-primary:hover,
+.btn-submit:hover,
+.filter-form button:hover,
+.reset-btn:hover,
+.pet-message-btn:hover,
+.pet-edit-link:hover,
+.chat-input-area button:hover,
+.admin-actions button:hover,
+.make-admin-btn:hover,
+.unblock-user-btn:hover,
+.approve-btn:hover {
+    background-color: var(--color-green-gray);
+    transform: scale(1.02);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-dark-green);
+    border: 2px solid var(--color-dark-green);
+    padding: 10px 25px;
+    border-radius: var(--radius-xl);
+    font-family: var(--font-h1);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-dark-green);
+    color: var(--color-beige);
+}
+
+.btn-danger,
+.btn-delete,
+.reject-btn,
+.delete-ad-btn,
+.delete-user-btn {
+    background-color: #dc2626;
+    color: white;
+}
+
+.btn-danger:hover,
+.btn-delete:hover,
+.reject-btn:hover,
+.delete-ad-btn:hover,
+.delete-user-btn:hover {
+    background-color: #b91c1c;
+}
+
+/* ===== ОБЩИЕ СТИЛИ ДЛЯ ФОРМ ===== */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    width: 100%;
+}
+
+.form-group label {
+    font-family: var(--font-h1);
+    font-size: 20px;
+    color: var(--color-dark-green);
+    transition: color 0.3s ease;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 2px solid var(--color-dark-green);
+    background: transparent;
+    font-family: var(--font-h2);
+    font-size: 18px;
+    color: var(--color-dark-green);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-bottom-color: var(--color-green-gray);
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23405A5C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    transition: background-image 0.3s ease;
+}
+
+body.dark-theme .form-group select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C3C1AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+}
+
+.form-group input::placeholder,
+.form-group select::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+    opacity: 0.7;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .form-group input::placeholder,
+body.dark-theme .form-group select::placeholder,
+body.dark-theme .form-group textarea::placeholder {
+    color: var(--color-beige);
+    opacity: 0.6;
+}
+
+body.dark-theme #messageInput::placeholder {
+    color: var(--color-dark-green);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ===== ОБЩИЕ СТИЛИ ДЛЯ АЛЕРТОВ ===== */
+.alert {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-xl);
+    font-family: var(--font-h2);
+    font-size: 14px;
+    text-align: center;
+}
+
+.alert-error {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #dc2626;
+}
+
+.alert-success {
+    background-color: #dcfce7;
+    color: #16a34a;
+    border: 1px solid #16a34a;
+}
+
+body.dark-theme .alert-error {
+    background-color: rgba(220, 38, 38, 0.2);
+    color: #ff8a8a;
+}
+
+body.dark-theme .alert-success {
+    background-color: rgba(22, 163, 74, 0.2);
+    color: #6ee7a0;
+}
+
+/* ===== ТЕКСТОВЫЕ ЭЛЕМЕНТЫ ===== */
+.pet-details,
+.pet-details p,
+.info-item,
+.info-label,
+.info-value,
+.conv-name,
+.conv-last-message,
+.chat-with,
+.stat-label,
+.user-info,
+.admin-card-right p,
+.sidebar-header h3,
+.stat-number,
+.tab-btn {
+    color: var(--color-dark-green);
+    transition: color 0.3s ease;
+}
+
+.pet-card-right h3,
+.admin-card-right h3,
+.form-card h2,
+main h1 {
+    color: var(--color-dark-green);
+    transition: color 0.3s ease;
+}
+
+/* Аватар в чате */
+.conv-avatar {
+    background-color: #405A5C;
+    color: #F0EFE6;
+}
+
+body.dark-theme .conv-avatar {
+    background-color: #405A5C;
+    color: #C3C1AF;
+}
+
+/* Кнопки в админке */
+.remove-admin-btn,
+.block-user-btn,
+.unpublish-btn {
+    background-color: #ea580c;
+    color: white;
+}
+
+.remove-admin-btn:hover,
+.block-user-btn:hover,
+.unpublish-btn:hover {
+    background-color: #c2410c;
+}
+
+/* ===== ПОДВАЛ (FOOTER) ===== */
+footer {
+    background-color: #405A5C;
+    color: #F0EFE6;
+    text-align: center;
+    padding: var(--spacing-lg);
+    font-size: 14px;
+    width: 100%;
+}
+
+body.dark-theme footer {
+    color: #C3C1AF;
+}
+
+footer a {
+    color: #F0EFE6;
+    text-decoration: underline;
+}
+
+body.dark-theme footer a {
+    color: #C3C1AF;
+}
+
+footer a:hover {
+    opacity: 0.8;
+}
+
+
+.menu-overlay{
+    display: none;
+}
+nav {
+    display: flex;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+    align-items: center;
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    flex-direction: row;
+}
+
+/* Мобильная версия (до 768px) */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+        position: relative;
+        z-index: 101;
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: #405A5C;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: var(--spacing-xl);
+        padding: 80px var(--spacing-xl) var(--spacing-xl);
+        transition: right 0.3s ease;
+        z-index: 100;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+    }
+    
+    body.dark-theme nav {
+        background-color: #405A5C;
+    }
+    
+    nav.active {
+        right: 0;
+    }
+    
+    nav a {
+        width: 100%;
+        text-align: center;
+        padding: var(--spacing-md) 0;
+        font-size: 18px;
+    }
+    
+    .theme-toggle {
+        margin-top: var(--spacing-sm);
+    }
+    
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    header {
+        padding: var(--spacing-sm) var(--spacing-lg);
+    }
+    
+    nav a {
+        font-size: 14px;
+    }
+    
+    main {
+        padding: 0 var(--spacing-md);
+        gap: var(--spacing-lg);
+    }
+    
+    .form-group label {
+        font-size: 18px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;
+    }
+    
+    .btn-primary,
+    .btn-submit,
+    .filter-form button,
+    .reset-btn,
+    .pet-message-btn,
+    .pet-edit-link {
+        padding: 10px var(--spacing-lg);
+        font-size: 14px;
+    }
+    
+    .profile-info,
+    .form-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .auth-container {
+        padding: var(--spacing-xl) var(--spacing-xl);
+        width: 90%;
+    }
+    
+    .auth-container h1 {
+        font-size: 32px;
+    }
+    
+    .input_field input {
+        min-width: 250px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        width: 85%;
+    }
+}

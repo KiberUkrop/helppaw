@@ -1,0 +1,288 @@
+@import url('global.css');
+
+main {
+    max-width: 1400px;
+}
+
+/* Статистика */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    width: 100%;
+}
+
+.stat-card {
+    background-color: var(--color-beige);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-number {
+    font-size: 36px;
+    font-weight: bold;
+    font-family: var(--font-h1);
+    color: var(--color-dark-green);
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--color-dark-green);
+    padding-top: 8px;
+}
+
+/* Вкладки */
+.admin-tabs {
+    display: flex;
+    gap: var(--spacing-sm);
+    border-bottom: 2px solid var(--color-beige);
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 12px 24px;
+    font-family: var(--font-h1);
+    font-size: 16px;
+    color: var(--color-dark-green);
+    cursor: pointer;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    transition: all 0.3s;
+}
+
+.tab-btn:hover {
+    background-color: var(--color-beige);
+}
+
+.tab-btn.active {
+    background-color: var(--color-beige);
+    color: var(--color-dark-green);
+}
+
+.tab-content {
+    display: none;
+    padding-top: var(--spacing-xl);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h2 {
+    font-family: var(--font-h1);
+    font-size: 24px;
+    padding-bottom: var(--spacing-lg);
+    color: var(--color-dark-green);
+    text-align: center;
+}
+
+/* Карточки объявлений */
+.admin-card {
+    background-color: var(--color-beige);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.admin-card:not(:last-child) {
+    padding-bottom: var(--spacing-lg);
+}
+
+.admin-card-left {
+    flex-shrink: 0;
+}
+
+.admin-photo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
+
+.admin-photo-placeholder {
+    width: 120px;
+    height: 120px;
+    background-color: var(--color-green-gray);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-beige);
+}
+
+.admin-card-right {
+    flex: 1;
+}
+
+.admin-card-right h3 {
+    font-family: var(--font-h1);
+    font-size: 20px;
+    padding-bottom: var(--spacing-sm);
+    color: var(--color-dark-green);
+}
+
+.admin-card-right p {
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.admin-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding-top: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.admin-actions button {
+    padding: 8px 20px;
+    border-radius: var(--radius-xl);
+    font-family: var(--font-h1);
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.approve-btn {
+    background-color: #16a34a;
+    color: white;
+}
+
+.approve-btn:hover {
+    background-color: #15803d;
+}
+
+.reject-btn,
+.delete-ad-btn,
+.delete-user-btn {
+    background-color: #dc2626;
+    color: white;
+}
+
+.reject-btn:hover,
+.delete-ad-btn:hover,
+.delete-user-btn:hover {
+    background-color: #b91c1c;
+}
+
+.unpublish-btn {
+    background-color: #ea580c;
+    color: white;
+}
+
+.unpublish-btn:hover {
+    background-color: #c2410c;
+}
+
+/* Карточки пользователей */
+#users-list, 
+#moderation-list,
+#all-ads-list
+{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+
+
+.user-card {
+    background-color: var(--color-beige);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.user-info {
+    font-size: 14px;
+}
+
+.user-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.user-actions button {
+    padding: 8px 20px;
+    border-radius: var(--radius-xl);
+    font-family: var(--font-h1);
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.make-admin-btn,
+.unblock-user-btn {
+    background-color: var(--color-dark-green);
+    color: var(--color-beige);
+}
+
+.make-admin-btn:hover,
+.unblock-user-btn:hover {
+    background-color: var(--color-green-gray);
+}
+
+.remove-admin-btn,
+.block-user-btn {
+    background-color: #ea580c;
+    color: white;
+}
+
+.remove-admin-btn:hover,
+.block-user-btn:hover {
+    background-color: #c2410c;
+}
+
+.current-user-badge {
+    background-color: var(--color-green-gray);
+    color: var(--color-beige);
+    padding: 8px 20px;
+    border-radius: var(--radius-xl);
+    font-family: var(--font-h1);
+    font-size: 14px;
+}
+
+.loading,
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: var(--color-dark-green);
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .admin-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .user-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .user-actions {
+        justify-content: center;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .admin-tabs {
+        justify-content: center;
+    }
+}
