@@ -1,4 +1,4 @@
-// theme.js - переключение светлой/тёмной темы и бургер-меню
+// theme.js - переключение светлой/тёмной темы
 
 (function() {
     // ===== ФУНКЦИИ ТЕМЫ =====
@@ -6,18 +6,16 @@
         if (theme === 'dark') {
             document.body.classList.add('dark-theme');
             localStorage.setItem('theme', 'dark');
-            const toggleBtn = document.getElementById('themeToggle');
-            if (toggleBtn) {
-                toggleBtn.textContent = '☀️';
-                toggleBtn.setAttribute('aria-label', 'Включить светлую тему');
+            const themeCheckbox = document.getElementById('themeCheckbox');
+            if (themeCheckbox) {
+                themeCheckbox.checked = true;
             }
         } else {
             document.body.classList.remove('dark-theme');
             localStorage.setItem('theme', 'light');
-            const toggleBtn = document.getElementById('themeToggle');
-            if (toggleBtn) {
-                toggleBtn.textContent = '🌙';
-                toggleBtn.setAttribute('aria-label', 'Включить тёмную тему');
+            const themeCheckbox = document.getElementById('themeCheckbox');
+            if (themeCheckbox) {
+                themeCheckbox.checked = false;
             }
         }
     }
@@ -45,68 +43,43 @@
         }
     }
     
-    // ===== ФУНКЦИИ БУРГЕР-МЕНЮ =====
-    function closeMenu() {
-        const burger = document.getElementById('burgerMenu');
-        const nav = document.getElementById('navMenu');
-        const overlay = document.getElementById('menuOverlay');
-        
-        if (burger) burger.classList.remove('active');
-        if (nav) nav.classList.remove('active');
-        if (overlay) overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-    
-    function openMenu() {
-        const burger = document.getElementById('burgerMenu');
-        const nav = document.getElementById('navMenu');
-        const overlay = document.getElementById('menuOverlay');
-        
-        if (burger) burger.classList.add('active');
-        if (nav) nav.classList.add('active');
-        if (overlay) overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function toggleMenu() {
-        const nav = document.getElementById('navMenu');
-        if (nav && nav.classList.contains('active')) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    }
-    
     // ===== ИНИЦИАЛИЗАЦИЯ =====
     document.addEventListener('DOMContentLoaded', function() {
-        // Кнопка переключения темы
-        const toggleBtn = document.getElementById('themeToggle');
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', toggleTheme);
-        }
-        
-        // Бургер-меню
-        const burger = document.getElementById('burgerMenu');
-        const overlay = document.getElementById('menuOverlay');
-        
-        if (burger) {
-            burger.addEventListener('click', toggleMenu);
-        }
-        
-        if (overlay) {
-            overlay.addEventListener('click', closeMenu);
+        // Кнопка переключения темы (тумблер)
+        const themeCheckbox = document.getElementById('themeCheckbox');
+        if (themeCheckbox) {
+            themeCheckbox.addEventListener('change', toggleTheme);
         }
         
         // Закрываем меню при клике на ссылку в nav
         const navLinks = document.querySelectorAll('#navMenu a');
         navLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
+            link.addEventListener('click', function() {
+                const burgerCheckbox = document.getElementById('burger-checkbox');
+                if (burgerCheckbox) {
+                    burgerCheckbox.checked = false;
+                }
+            });
         });
+        
+        // Закрываем меню при клике на оверлей
+        const overlay = document.querySelector('.menu-overlay');
+        if (overlay) {
+            overlay.addEventListener('click', function() {
+                const burgerCheckbox = document.getElementById('burger-checkbox');
+                if (burgerCheckbox) {
+                    burgerCheckbox.checked = false;
+                }
+            });
+        }
         
         // Закрываем меню при изменении размера окна
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
-                closeMenu();
+                const burgerCheckbox = document.getElementById('burger-checkbox');
+                if (burgerCheckbox) {
+                    burgerCheckbox.checked = false;
+                }
             }
         });
     });

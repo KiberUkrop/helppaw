@@ -1,9 +1,9 @@
 <?php
-$host = 'localhost';
+$host = 'lejifdokiechon.beget.app';
 $port = '5432';
-$dbname = 'helpaw';
-$user = 'postgres';
-$password = '6745';  // пароль, который вводила при установке PostgreSQL 14
+$dbname = 'default_db';
+$user = 'KiberUkrop';
+$password = 'VikopKeK2006)';         // Пароль
 
 try {
     $pdo = new PDO(

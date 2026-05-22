@@ -99,11 +99,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         
         <?php if ($error): ?>
-            <div class="alert alert-error">❌ <?= $error ?></div>
+            <div class="alert alert-error"><?= $error ?></div>
         <?php endif; ?>
         
         <?php if ($success): ?>
-            <div class="alert alert-success">✅ <?= $success ?></div>
+            <div class="alert alert-success"><?= $success ?></div>
         <?php endif; ?>
         
         <form method="POST" class="auth-form">

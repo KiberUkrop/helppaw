@@ -64,11 +64,8 @@ if ($selected_user_id) {
             <h1>Help <br> Paw</h1>
         </a>
         
-        <button class="burger-menu" id="burgerMenu" aria-label="Меню">
-            <span class="burger-line"></span>
-            <span class="burger-line"></span>
-            <span class="burger-line"></span>
-        </button>
+        <input type="checkbox" id="burger-checkbox" class="burger-checkbox">
+        <label class="burger" for="burger-checkbox"></label>
         
         <nav id="navMenu">
             <a href="add_ad.php">Добавить объявление</a>
@@ -78,10 +75,15 @@ if ($selected_user_id) {
             <?php if (isAdmin()): ?>
                 <a href="admin_panel.php">Админ-панель</a>
             <?php endif; ?>
-            <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">🌙</button>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch">
+                    <input type="checkbox" id="themeCheckbox">
+                    <span class="theme-switch-slider"></span>
+                </label>
+            </div>
         </nav>
         
-        <div class="menu-overlay" id="menuOverlay"></div>
+        <div class="menu-overlay"></div>
     </header>
 
     <main>

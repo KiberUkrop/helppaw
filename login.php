@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         
         <?php if ($error): ?>
-            <div class="error">❌ <?= h($error) ?></div>
+            <div class="error"><?= h($error) ?></div>
         <?php endif; ?>
         
         <form method="POST" class="auth-form">
